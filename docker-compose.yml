@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: nlq-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: nlq
+      POSTGRES_USER: nlq
+      POSTGRES_PASSWORD: nlq1234!
+      TZ: Asia/Seoul
+    ports:
+      - "5432:5432"
+    volumes:
+      - nlq_pg_data:/var/lib/postgresql/data
+
+volumes:
+  nlq_pg_data:
